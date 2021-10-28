@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson_4</title>
+</head>
+<body>
+<script>
+    /*
+        1. Дан большой текст, в котором для оформления прямой речи используются одинарные кавычки.
+        Придумать шаблон, который заменяет одинарные кавычки на двойные.
+        2. Улучшить шаблон так, чтобы в конструкциях типа aren't одинарная кавычка не заменялась на двойную.
+    */
+
+    
+
+let text = "A: 'Hey Paul. What are you doing here?'\n"+
+           "B: 'How's it going? I'm meeting up with a friend here.'\n" +
+           "A: 'How have you been man?'\n" +
+           "B: 'Not too bad. I'm still in school and having a little fun.'\n" +
+           "A: 'How are you enjoying Mr. Lee's history class?'\n" +
+           "B: 'It's so boring.'\n" +
+           "A: 'Tell me about it. If it wasn't a requirement, I wouldn't have taken it.'\n" +
+           "B: 'How about you? What have you been up to?'\n" +
+           "A: 'I finished school last spring. I'm searching for a job now, but I'm slacking off.'\n" +
+           "B: 'I heard the job market is not that hot right now.'\n" +
+           "A: 'I could always take a low end job, but I'm not that desperate yet.'\n" +
+           "B: 'Well, good luck to you.'\n" +
+           "A: 'Thanks. It was good seeing you again.'\n" +
+           "B: 'Yeah. I'll catch you later.'\n" +
+           "A: 'Have a good night.'";
+    
+
+
+    console.log( "ПЕРВЫЙ ВАРИАНТ ИСПОЛНЕНИЯ" );
+    console.log( text.replace( /'/g, "\"" ) );
+    console.log( "ВТОРОЙ ВАРИАНТ ИСПОЛНЕНИЯ" );
+    console.log( text.replace( /(\W)(')|(^)(')/g, "$1\"" ) );
+</script>
+</body>
+</html>
