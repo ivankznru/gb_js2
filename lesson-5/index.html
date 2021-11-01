@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+<header>
+    <div class="logo">E-shop</div>
+    <div class="cart">
+        <form action="#" method="post" class="search-form">
+            <input v-model.lazy = "searchLine" type="text" class="search-field">
+            <button class="btn-search" type="button"  @submit.prevent="filterGoods()">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <button class="btn-cart" type="button" @click="cartVisual">Корзина</button>
+        <div class="cart-block" v-show="isVisibleCart">
+            <div class="empty-cart" v-if="emptyCart">
+                Ваша корзина пуста
+            </div>
+            <div class="product-cart" v-else>
+                <div class="cart-item" v-for="good of cartList" :key="good.id_product">
+                    <img :src="imgCatalog" :alt="good.product_name">
+                    <div class="desc">
+                        <h3>{{good.product_name}}</h3>
+                        <p>{{good.price}}</p>
+                        <p>Quantity {{good.quantity}}</p>
+                    </div>
+                    <div class="times" :id="good.id_product" @click="removeCart">
+                        <i class="far fa-times-circle" ></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="goods-list">
+        <div class="good-card" v-for="good of filterGoods" :key="good.id_product">
+            <img :src="imgCatalog" :alt="good.product_name">
+            <div class="desc">
+                <h3>{{good.product_name}}</h3>
+                <p>{{good.price}}</p>
+                <button class="buy-btn" @click="addProduct(good)">Купить</button>
+            </div>
+        </div>
+    </div>
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+<script defer src="js/main.js"></script>
+</body>
+</html>
+
+
